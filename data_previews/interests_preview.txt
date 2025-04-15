@@ -1,0 +1,53 @@
+=== INTERESTS DATA PREVIEW ===
+
+Shape: (107, 7)
+
+Columns: ['Original Item?', 'Communities', 'Priority', 'Project Type', 'Title', 'Creation Date', 'Modified Date']
+
+Data Types:
+Original Item?            object
+Communities               object
+Priority                    bool
+Project Type              object
+Title                     object
+Creation Date     datetime64[ns]
+Modified Date     datetime64[ns]
+dtype: object
+
+First 5 rows:
+  Original Item?                                        Communities  ...       Creation Date       Modified Date
+0            yes  Adjacent , Launch New Hampshire , 1517 Founder...  ... 2023-08-22 14:33:00 2025-02-13 16:27:00
+1            yes  Adjacent , Launch New Hampshire , 1517 Founder...  ... 2023-08-22 14:33:00 2025-02-13 16:27:00
+2            yes  Adjacent , Launch New Hampshire , 1517 Founder...  ... 2023-08-22 14:33:00 2025-02-13 16:27:00
+3            yes  Adjacent , Launch New Hampshire , 1517 Founder...  ... 2023-08-22 14:33:00 2025-02-13 16:27:00
+4            yes  Adjacent , Launch New Hampshire , 1517 Founder...  ... 2023-08-22 14:33:00 2025-02-13 16:27:00
+
+[5 rows x 7 columns]
+
+Sample values from each column:
+
+Original Item?:
+['yes' '']
+
+Communities:
+['Adjacent , Launch New Hampshire , 1517 Founders , Chicago Builders , University of Michigan Innovate Blue , LaGuardia College , Rockland Community College'
+ 'Adjacent' '1517 Founders']
+
+Priority:
+[ True False]
+
+Project Type:
+['Activism , Art , Business/Start-up , Research' '' 'Business/Start-up'
+ 'Deep Tech']
+
+Title:
+['Agriculture' 'Archeology' 'Architecture' 'Art' 'Astronomy']
+
+Creation Date:
+['2023-08-22T14:33:00.000000000' '2023-10-21T18:30:00.000000000'
+ '2023-10-21T18:42:00.000000000' '2023-11-21T14:53:00.000000000'
+ '2023-12-06T15:22:00.000000000']
+
+Modified Date:
+['2025-02-13T16:27:00.000000000' '2025-02-11T08:34:00.000000000'
+ '2025-02-11T08:42:00.000000000' '2025-02-13T16:28:00.000000000']

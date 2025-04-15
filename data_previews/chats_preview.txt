@@ -1,0 +1,51 @@
+=== CHAT DATA PREVIEW ===
+
+Shape: (305, 6)
+
+Columns: ['Community', 'conversationParts', 'Last sent msg', 'Creation Date', 'Participant1', 'Participant2']
+
+Data Types:
+Community                    object
+conversationParts            object
+Last sent msg        datetime64[ns]
+Creation Date        datetime64[ns]
+Participant1                 object
+Participant2                 object
+dtype: object
+
+First 5 rows:
+  Community              conversationParts  ...         Participant1       Participant2
+0  Adjacent                 salsal , User0  ...               salsal              User0
+1  Adjacent    DemocratizedCapital , User0  ...  DemocratizedCapital              User0
+2  Adjacent  DemocratizedCapital , ToWumbo  ...  DemocratizedCapital            ToWumbo
+3  Adjacent          samgoestocamp , User0  ...        samgoestocamp              User0
+4  Adjacent      User0 , EdibleImagination  ...                User0  EdibleImagination
+
+[5 rows x 6 columns]
+
+Sample values from each column:
+
+Community:
+['Adjacent' 'Launch New Hampshire']
+
+conversationParts:
+['salsal , User0' 'DemocratizedCapital , User0'
+ 'DemocratizedCapital , ToWumbo' 'samgoestocamp , User0'
+ 'User0 , EdibleImagination']
+
+Last sent msg:
+['2024-04-26T09:37:00.000000000' '2024-01-16T14:26:00.000000000'
+ '2023-02-24T13:46:00.000000000' '2024-05-10T20:40:00.000000000'
+ '2024-05-10T20:39:00.000000000']
+
+Creation Date:
+['2023-02-23T16:52:00.000000000' '2023-02-24T13:43:00.000000000'
+ '2023-02-24T13:45:00.000000000' '2023-06-06T00:24:00.000000000'
+ '2023-06-29T09:33:00.000000000']
+
+Participant1:
+['salsal' 'DemocratizedCapital' 'samgoestocamp' 'User0' 'RichardinMD']
+
+Participant2:
+['User0' 'ToWumbo' 'EdibleImagination' 'JaydenJoinstheUnion'
+ 'CreativeCommunityInvestment']
