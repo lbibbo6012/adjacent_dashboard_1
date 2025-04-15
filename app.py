@@ -23,50 +23,54 @@ st.markdown("### Tracking conversation volume and participation trends over time
 
 # Function to load data
 @st.cache_data
-def load_data(folder_path):
-    """Load and cache the cleaned data"""
-    # File paths for cleaned data
-    chats_csv = os.path.join(folder_path, 'cleaned_chats.csv')
-    interests_csv = os.path.join(folder_path, 'cleaned_interests.csv')
-    
-    # Load data
+def load_data():
+    """Load and cache the cleaned data from local directory"""
+    # Filenames
+    chats_csv = 'cleaned_chats.csv'
+    interests_csv = 'cleaned_interests.csv'
+
+    # Try loading cleaned files
     try:
         chats_df = pd.read_csv(chats_csv)
         interests_df = pd.read_csv(interests_csv)
-        
-        # Convert date columns to datetime
-        date_cols = [col for col in chats_df.columns if 'date' in col.lower() or 'msg' in col.lower()]
-        for col in date_cols:
-            chats_df[col] = pd.to_datetime(chats_df[col])
-            
-        date_cols = [col for col in interests_df.columns if 'date' in col.lower()]
-        for col in date_cols:
-            interests_df[col] = pd.to_datetime(interests_df[col])
-            
+
+        # Convert date columns
+        chats_df = convert_date_columns(chats_df)
+        interests_df = convert_date_columns(interests_df)
+
         return chats_df, interests_df
+
     except Exception as e:
-        st.error(f"Error loading data: {e}")
+        st.error(f"Error loading cleaned data: {e}")
+
         if not (os.path.exists(chats_csv) and os.path.exists(interests_csv)):
-            st.warning("Cleaned data files not found. Running cleaning process...")
-            
-            # Set file paths for raw data
-            chats_file = os.path.join(folder_path, 'All Chats Export Jan 14 2025.ndjson')
-            interests_file = os.path.join(folder_path, 'Field of Interests Export Feb 21 2025.ndjson')
-            
-            # Clean data
+            st.warning("Cleaned files not found — attempting to clean raw data...")
+
+            # Raw file names
+            chats_file = 'All Chats Export Jan 14 2025.ndjson'
+            interests_file = 'Field of Interests Export Feb 21 2025.ndjson'
+
+            # Run cleaning functions
             chats_df = clean_chats(chats_file)
             interests_df = clean_interests(interests_file)
-            
-            # Save cleaned data
+
+            # Save cleaned CSVs
             chats_df.to_csv(chats_csv, index=False)
             interests_df.to_csv(interests_csv, index=False)
-            
+
             return chats_df, interests_df
+
         return None, None
 
+def convert_date_columns(df):
+    """Helper to convert columns containing 'date' or 'msg' to datetime"""
+    date_cols = [col for col in df.columns if 'date' in col.lower() or 'msg' in col.lower()]
+    for col in date_cols:
+        df[col] = pd.to_datetime(df[col], errors='coerce')
+    return df
+
 # Load the data
-folder_path = os.path.expanduser('~/Desktop/485 capstone')
-chats_df, interests_df = load_data(folder_path)
+chats_df, interests_df = load_data()
 
 # Sidebar filters
 st.sidebar.header("Filters")
